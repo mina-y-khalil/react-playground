@@ -1,5 +1,6 @@
-import reactImg from './assets/react-core-concepts.png'; {/* we added this line to import the imageto avoid broken image link during rendering */ }
-import componentsImg from './assets/components.png';
+import reactImg from './assets/react-core-concepts.png';
+// import componentsImg from './assets/components.png';
+import { CORE_CONCEPTS } from './data.js';
 
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
 
@@ -22,8 +23,7 @@ function Header() {
   );
 }
 
-{/* props example*/ }
-function coreConcepts(props) {
+function CoreConcept(props) {
   return (
     <li>
       <img src={props.img} alt={props.title} />
@@ -42,13 +42,26 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <coreConcepts
-              title="Components"
-              description="The core UI building blocks of React."
-              img={componentsImg}
+            <CoreConcept
+              title={CORE_CONCEPTS[0].title}
+              description={CORE_CONCEPTS[0].description}
+              img={CORE_CONCEPTS[0].image}
             />
-            <coreConcepts title="Props" description="Custom attributes you can pass to components." />
-            <coreConcepts title="State" description="A way to manage dynamic data in your components." />
+            <CoreConcept
+              title={CORE_CONCEPTS[1].title}
+              description={CORE_CONCEPTS[1].description}
+              img={CORE_CONCEPTS[1].image}
+            />
+            <CoreConcept
+              title={CORE_CONCEPTS[2].title}
+              description={CORE_CONCEPTS[2].description}
+              img={CORE_CONCEPTS[2].image}
+            />
+            <CoreConcept
+              title={CORE_CONCEPTS[3].title}
+              description={CORE_CONCEPTS[3].description}
+              img={CORE_CONCEPTS[3].image}
+            />
           </ul>
         </section>
         <h2>Time to get started!</h2>
