@@ -1,8 +1,6 @@
-export default function TabButton(props) {
-    function handleClick() {
-        console.log(`You clicked the ${props.children} tab`);
-    }
+export default function TabButton({ children, onSelect }) {
+
     return (
-        <li><button onClick={handleClick}>{props.children}</button></li>
+        <li><button onClick={onSelect}>{children}</button></li>
     );
 }

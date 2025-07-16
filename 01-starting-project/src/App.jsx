@@ -5,6 +5,11 @@ import TabButton from './components/TabButton.jsx';
 
 
 function App() {
+  function handleSelect(selectedButton) {
+    // selectedButton is the text content of the button that was clicked 'components', 'JSX', 'Props', 'State'
+    console.log(`Selected tab: ${selectedButton}`);
+  }
+
   return (
     <div>
       <Header />       {/* here how we can use the Header component */}
@@ -21,11 +26,12 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton>Components</TabButton>
-            <TabButton>JSX</TabButton>
-            <TabButton>Props</TabButton>
-            <TabButton>State</TabButton>
+            <TabButton onSelect={() => handleSelect('Components')}>Components</TabButton>
+            <TabButton onSelect={() => handleSelect('JSX')}>JSX</TabButton>
+            <TabButton onSelect={() => handleSelect('Props')}>Props</TabButton>
+            <TabButton onSelect={() => handleSelect('State')}>State</TabButton>
           </menu>
+          Dynamic content will go here!
         </section>
 
 
