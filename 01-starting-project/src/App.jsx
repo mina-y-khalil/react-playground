@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { CORE_CONCEPTS } from './data.js';
 import Header from './components/Header/Header.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
@@ -5,9 +6,13 @@ import TabButton from './components/TabButton.jsx';
 
 
 function App() {
+  const [tabContent, setTabContent] = useState("Please select a button"); // this must be on the top level of the component not inside any function the variable here is an array of 2 elements the first is the current value of the state the second is a function to update that value
+
   function handleSelect(selectedButton) {
     // selectedButton is the text content of the button that was clicked 'components', 'JSX', 'Props', 'State'
-    console.log(`Selected tab: ${selectedButton}`);
+    // console.log(`Selected tab: ${selectedButton}`);
+    setTabContent(selectedButton);
+    console.log(tabContent);
   }
 
   return (
@@ -31,7 +36,7 @@ function App() {
             <TabButton onSelect={() => handleSelect('Props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('State')}>State</TabButton>
           </menu>
-          Dynamic content will go here!
+          {tabContent}
         </section>
 
 
