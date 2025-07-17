@@ -6,7 +6,7 @@ import TabButton from './components/TabButton.jsx';
 
 
 function App() {
-  const [tabContent, setTabContent] = useState("components"); // this must be on the top level of the component not inside any function the variable here is an array of 2 elements the first is the current value of the state the second is a function to update that value
+  const [tabContent, setTabContent] = useState(); // this must be on the top level of the component not inside any function the variable here is an array of 2 elements the first is the current value of the state the second is a function to update that value
 
   function handleSelect(selectedButton) {
     // selectedButton is the text content of the button that was clicked 'components', 'JSX', 'Props', 'State'
@@ -31,12 +31,13 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={() => handleSelect('Components')}>Components</TabButton>
-            <TabButton onSelect={() => handleSelect('JSX')}>JSX</TabButton>
-            <TabButton onSelect={() => handleSelect('Props')}>Props</TabButton>
-            <TabButton onSelect={() => handleSelect('State')}>State</TabButton>
+            <TabButton isSelected={tabContent === 'Components'} onSelect={() => handleSelect('Components')}>Components</TabButton>
+            <TabButton isSelected={tabContent === 'JSX'} onSelect={() => handleSelect('JSX')}>JSX</TabButton>
+            <TabButton isSelected={tabContent === 'Props'} onSelect={() => handleSelect('Props')}>Props</TabButton>
+            <TabButton isSelected={tabContent === 'State'} onSelect={() => handleSelect('State')}>State</TabButton>
           </menu>
-          <div id="tab-content">
+          {!tabContent ? <p>Please select a topic</p> : null}
+          {tabContent ? <div id="tab-content">
             <h3>{EXAMPLES[tabContent.toLocaleLowerCase()].title}</h3>
             <p>{EXAMPLES[tabContent.toLocaleLowerCase()].description}</p>
             <pre>
@@ -44,7 +45,7 @@ function App() {
                 {EXAMPLES[tabContent.toLocaleLowerCase()].code}
               </code>
             </pre>
-          </div>
+          </div> : null}
           {/* {tabContent} */}
         </section>
 
