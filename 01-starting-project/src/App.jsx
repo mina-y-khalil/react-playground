@@ -16,7 +16,7 @@ function App() {
   }
 
   return (
-    <div>
+    <>
       <Header />       {/* here how we can use the Header component */}
       <main>
         <section id="core-concepts">
@@ -56,7 +56,7 @@ function App() {
         <h2>Time to get started!</h2>
 
       </main>
-    </div>
+    </>
   );
 }
 
