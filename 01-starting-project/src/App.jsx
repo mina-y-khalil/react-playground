@@ -13,11 +13,6 @@ function App() {
         <CoreConcepts />  {/* here how we can use the CoreConcepts component */}
         <Examples />  {/* here how we can use the Examples component */}
 
-
-
-
-        <h2>Time to get started!</h2>
-
       </main>
     </>
   );
