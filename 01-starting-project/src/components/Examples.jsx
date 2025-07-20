@@ -1,6 +1,7 @@
 import TabButton from "./TabButton";
 import { EXAMPLES } from "../data.js";
 import { useState } from "react";
+import Section from "./Section";
 
 export default function Examples() {
     const [tabContent, setTabContent] = useState(); // this must be on the top level of the component not inside any function the variable here is an array of 2 elements the first is the current value of the state the second is a function to update that value
@@ -12,13 +13,12 @@ export default function Examples() {
         console.log(tabContent);
     }
     return (
-        <section id="examples">
-            <h2>Examples</h2>
+        <Section title="Examples" id="examples">
             <menu>
-                <TabButton isSelected={tabContent === 'Components'} onSelect={() => handleSelect('Components')}>Components</TabButton>
-                <TabButton isSelected={tabContent === 'JSX'} onSelect={() => handleSelect('JSX')}>JSX</TabButton>
-                <TabButton isSelected={tabContent === 'Props'} onSelect={() => handleSelect('Props')}>Props</TabButton>
-                <TabButton isSelected={tabContent === 'State'} onSelect={() => handleSelect('State')}>State</TabButton>
+                <TabButton isSelected={tabContent === 'Components'} onClick={() => handleSelect('Components')}>Components</TabButton>
+                <TabButton isSelected={tabContent === 'JSX'} onClick={() => handleSelect('JSX')}>JSX</TabButton>
+                <TabButton isSelected={tabContent === 'Props'} onClick={() => handleSelect('Props')}>Props</TabButton>
+                <TabButton isSelected={tabContent === 'State'} onClick={() => handleSelect('State')}>State</TabButton>
             </menu>
             {!tabContent ? <p>Please select a topic</p> : null}
             {tabContent ? <div id="tab-content">
@@ -31,7 +31,7 @@ export default function Examples() {
                 </pre>
             </div> : null}
             {/* {tabContent} */}
-        </section>
+        </Section>
 
     )
 }
