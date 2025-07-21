@@ -2,6 +2,7 @@ import TabButton from "./TabButton";
 import { EXAMPLES } from "../data.js";
 import { useState } from "react";
 import Section from "./Section";
+import Tabs from "./Tabs";
 
 export default function Examples() {
     const [tabContent, setTabContent] = useState(); // this must be on the top level of the component not inside any function the variable here is an array of 2 elements the first is the current value of the state the second is a function to update that value
@@ -14,11 +15,18 @@ export default function Examples() {
     }
     return (
         <Section title="Examples" id="examples">
-            <menu>
-                <TabButton isSelected={tabContent === 'Components'} onClick={() => handleSelect('Components')}>Components</TabButton>
-                <TabButton isSelected={tabContent === 'JSX'} onClick={() => handleSelect('JSX')}>JSX</TabButton>
-                <TabButton isSelected={tabContent === 'Props'} onClick={() => handleSelect('Props')}>Props</TabButton>
-                <TabButton isSelected={tabContent === 'State'} onClick={() => handleSelect('State')}>State</TabButton>
+            <Tabs
+                ButtonsContainer="menu"
+                buttons={<>
+                    <TabButton isSelected={tabContent === 'Components'} onClick={() => handleSelect('Components')}>Components</TabButton>
+                    <TabButton isSelected={tabContent === 'JSX'} onClick={() => handleSelect('JSX')}>JSX</TabButton>
+                    <TabButton isSelected={tabContent === 'Props'} onClick={() => handleSelect('Props')}>Props</TabButton>
+                    <TabButton isSelected={tabContent === 'State'} onClick={() => handleSelect('State')}>State</TabButton>
+
+                </>}
+            >{tabContent}</Tabs>
+            <menu >
+
             </menu>
             {!tabContent ? <p>Please select a topic</p> : null}
             {tabContent ? <div id="tab-content">
@@ -30,7 +38,7 @@ export default function Examples() {
                     </code>
                 </pre>
             </div> : null}
-            {/* {tabContent} */}
+
         </Section>
 
     )
