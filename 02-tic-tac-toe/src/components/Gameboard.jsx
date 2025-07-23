@@ -7,16 +7,17 @@ const initialGameBoard = [
     [null, null, null]
 ];
 
-export default function Gameboard() {
+export default function Gameboard({ onSelectSquare, activePlayerSymbol }) {
     const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
 
     function handleSelectSquare(rowIndex, colIndex) {
         setGameBoard((prevGameBoard) => {
             const updatedGameBoard = [...prevGameBoard.map(innerArray => [...innerArray])]; // here is brand new array from prev state and here we are updating it immutably and this is strongly recommended
-            updatedGameBoard[rowIndex][colIndex] = 'X';
+            updatedGameBoard[rowIndex][colIndex] = activePlayerSymbol;
             return updatedGameBoard;
         });
+        onSelectSquare();
 
     }
 
