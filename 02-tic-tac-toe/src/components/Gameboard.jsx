@@ -8,7 +8,7 @@ const initialGameBoard = [
 ];
 
 export default function Gameboard({ onSelectSquare, turns }) {
-    let gameBoard = initialGameBoard.map(row => [...row]);
+    let gameBoard = initialGameBoard.map(row => [...row]); // this called driven state 
 
 
     for (const turn of turns) {
