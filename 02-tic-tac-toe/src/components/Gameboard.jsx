@@ -1,21 +1,13 @@
 // import { useState } from 'react';
 
 //2D array
-const initialGameBoard = [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null]
-];
 
-export default function Gameboard({ onSelectSquare, turns }) {
+
+export default function Gameboard({ onSelectSquare, board }) {
     let gameBoard = initialGameBoard.map(row => [...row]); // this called driven state 
 
 
-    for (const turn of turns) {
-        const { square, player } = turn;
-        const { row, col } = square;
-        gameBoard[row][col] = player;
-    }
+
     // const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
 
