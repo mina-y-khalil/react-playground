@@ -4,7 +4,8 @@
 
 
 export default function Gameboard({ onSelectSquare, board }) {
-    let gameBoard = initialGameBoard.map(row => [...row]); // this called driven state 
+    let gameBoard = board.map(row => [...row]);
+    // this called driven state 
 
 
 
@@ -29,12 +30,17 @@ export default function Gameboard({ onSelectSquare, board }) {
                     <ol>
                         {row.map((playerSymbol, colIndex) => (
                             <li key={colIndex}>
-                                <button onClick={() => onSelectSquare(rowIndex, colIndex)} disabled={playerSymbol !== null}>{playerSymbol}</button>
+                                <button
+                                    onClick={() => onSelectSquare(rowIndex, colIndex)}
+                                    disabled={playerSymbol !== null}
+                                >
+                                    {playerSymbol}
+                                </button>
                             </li>
                         ))}
                     </ol>
                 </li>
             ))}
         </ol>
-    )
+    );
 }
