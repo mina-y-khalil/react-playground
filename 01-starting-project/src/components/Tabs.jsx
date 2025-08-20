@@ -1,4 +1,4 @@
-export default function Tabs({ children, buttons, ButtonsContainer }) {
+export default function Tabs({ children, buttons, ButtonsContainer = 'menu' }) {
     // const ButtonsContainer = buttonsContainer; // Dynamically use the specified container element
 
     return (
